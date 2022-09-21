@@ -6,6 +6,7 @@ body{
     margin: 0;
     font-family: 'Poppins', sans-serif;
     height: 100vh;
+    overflow: hidden;
 }
 a{
     text-decoration: none;
@@ -44,65 +45,104 @@ h1::after{
     height: 2px;
     width: 100%;
     background-color: black;
-    animation-duration: 1.5s;
-    animation-name: bottomLine;
+
 }
 header h3{
-    font-size: 4em;
-    animation-name: bounce2;
+    font-size: 5em;
+    animation-name: titleShow;
     animation-duration: 1.5s;
     font-weight: 500;
     margin-bottom: 0;
 }
+header img{
+    width: 15rem;
+    margin-bottom: 5rem;
+    animation: navShow 3s;
+}
+header > a{
+    padding: 0.5rem;
+    font-size: 1rem;
+    background: #58ff82;
+    border: solid 2px black;
+    border-radius: 5px;
+    margin-top: 5rem;
+    animation: bounce2 1.5s;
+    transition: ease .2s;
+}
+header > a:hover{
+    transform: scale(1.1);
+}
 
-main{
+
+
+/* nav */
+header nav 
+{
+    position: absolute;
+    right: -18rem;
+    transition: right ease-in-out 0.5s;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 75%;
+    background-color: #58ff82;
+    padding-right: 2rem;
+    border-left: solid 1px black;
 }
-main nav ul{
-    text-align: center;
+header nav:hover{
+    right: 0;
+}
+header nav ul{
+    position: relative;
     list-style: none;
     line-height: 6rem;
     padding: 0;
-    font-size: 15em;
+    font-size: 13em;
 }
-main nav li{
+header nav > a{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -3rem;
+    font-size: 3rem;
+}
+
+.selected{
+    border-left: solid black 5px;
+}
+header nav li{
     padding: 0 1rem;
     animation-duration: 1.5s;
     animation-name: navShow;
     transition: ease-in .2s;
 }
-main nav li i{
+header nav li i{
     font-size: 2rem;
-    margin: 0 1rem;
+    margin: 0 2rem 0 1rem;
 }
 
-main nav li:not(.selected):hover{
+header nav li:not(.selected):hover{
     transform: scale(1.1);
 }
 
-main nav li:nth-of-type(1){
+header nav li:nth-of-type(1){
     animation-fill-mode:both;
 }
-main nav li:nth-of-type(2){
+header nav li:nth-of-type(2){
     animation-delay: 0.25s;
     animation-fill-mode: both;
 
 }
-main nav li:nth-of-type(3){
+header nav li:nth-of-type(3){
     animation-delay: 0.5s;
     animation-fill-mode: both;
 
 }
-main nav li:nth-of-type(4){
+header nav li:nth-of-type(4){
     animation-delay: 0.75s;
     animation-fill-mode: both;
 
 }
-main nav li:nth-of-type(5){
+header nav li:nth-of-type(5){
     animation-delay: 1s;
     animation-fill-mode: both;
 
@@ -140,17 +180,6 @@ main nav li:nth-of-type(5){
 
 /* animations*/
 
-@keyframes bottomLine {
-    from {
-      width: 0%;
-      left: 50%;
-    }
-    to {
-      width: 100%;
-      width: 100%;
-      left: 0;
-    }
-}
 
 @keyframes titleShow {
     from {
@@ -210,30 +239,12 @@ main nav li:nth-of-type(5){
         width: 20%;
         font-size: 6vw;
     }
-    main{
-        height: 100%;
-        width: 70%;
-        align-items: flex-end;
-        padding: 3rem;
+    header nav{
+        top: 50%;
+        transform: translateY(-50%);
+        justify-content: center;
     }
-    main nav ul::before{
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 2px;
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-    main nav ul{
-        text-align: start;
-        position: relative;
-    } 
-    main nav ul li, main nav ul li i{
-        font-size: 1.5vw;
-    }
-    .selected{
-        border-left: solid black 2px;
-    }
-    main nav a i:last-of-type{
+    header nav > a{
         display: none;
     }
 }
