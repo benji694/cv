@@ -1,4 +1,4 @@
-window.addEventListener('scroll', ()=>{
-    let page2 = document.querySelector('#page2');
-    page2.scrollTo(page2.offsetTop)
-})
+const nav = document.querySelector("nav");
+nav.addEventListener("click", () => {
+  nav.classList.toggle("close");
+});

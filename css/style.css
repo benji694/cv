@@ -56,7 +56,7 @@ header h3{
 }
 header img{
     width: 15rem;
-    margin-bottom: 5rem;
+    margin: 8rem 0 5rem;
     animation: navShow 3s;
 }
 header > a{
@@ -79,14 +79,12 @@ header > a:hover{
 header nav 
 {
     position: absolute;
-    right: -18rem;
-    transition: right ease-in-out 0.5s;
-    height: 100%;
+    transition: ease-in-out 0.5s;
     display: flex;
-    flex-direction: column;
     background-color: #58ff82;
-    padding-right: 2rem;
-    border-left: solid 1px black;
+    width: 100%;
+    border-bottom: solid black 1px;
+    z-index: 99;
 }
 header nav:hover{
     right: 0;
@@ -97,6 +95,9 @@ header nav ul{
     line-height: 6rem;
     padding: 0;
     font-size: 13em;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 header nav > a{
     position: absolute;
@@ -147,6 +148,44 @@ header nav li:nth-of-type(5){
     animation-fill-mode: both;
 
 }
+.close li:not(.selected){
+    display: none;
+}
+#burger{
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    right: 2rem;
+    bottom: 3rem;
+    transition: ease-in .2s;
+    transform: rotate(45deg);
+}
+.close #burger::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    bottom: 1rem;
+}
+#burger::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    transform: rotate(-90deg);
+}
+.close #burger::after{
+    top: 1rem;
+    transform: rotate(0deg);
+}
+.close #burger{
+    transform: rotate(0deg);
+}
+
+
 
 /* button to change page */
 #next, #previous{
@@ -158,12 +197,12 @@ header nav li:nth-of-type(5){
     cursor: pointer;
 }
 #next{
-    bottom: 2rem;
-    right: 5rem;
+    bottom: 1rem;
+    right: 8rem;
 }
 #previous{
-    bottom: 2rem;
-    left: 5rem;
+    bottom: 1rem;
+    left: 8rem;
 }
 #next i{
     margin-left: 1rem;
@@ -239,12 +278,30 @@ header nav li:nth-of-type(5){
         width: 20%;
         font-size: 6vw;
     }
+    header img{
+        margin-top: 0;
+    }
     header nav{
         top: 50%;
         transform: translateY(-50%);
         justify-content: center;
+        right: -18rem;
+        flex-direction: column;
+        padding-right: 2rem;
+        border-left: solid 1px black;
+        height: 100%;
+        width: 23.5rem;
     }
     header nav > a{
         display: none;
+    }
+    .close ul li:not(.selected){
+        display: block;
+    }
+    #burger{
+        display: none;
+    }
+    .selected{
+        border-left: solid black 5px;
     }
 }
