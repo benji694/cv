@@ -118,6 +118,7 @@ nav li{
     animation-duration: 1.5s;
     animation-name: navShow;
     transition: ease-in .2s;
+    font-size: 2.4rem;
 }
 nav li i{
     font-size: 2rem;
